@@ -1,0 +1,79 @@
+<!-- <form #loginForm="ngForm" (ngSubmit)="OnSubmit(Email.value,Password.value)">
+  <div class="form-signin">
+    <div *ngIf="isLoginError" class="text-danger center error-message">
+      Incorrect Username and Passowrd
+    </div>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+
+    <input type="email" #Email="ngModel" ngModel name="UserName" [class.is-invalid]="Email.invalid && Email.touched"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Email address" required>
+    <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+      <small class="text-danger" *ngIf="Email.errors.required && Email.touched">Email id Required</small>
+      <small class="text-danger" *ngIf="Email.errors.pattern">Email is invalid</small>
+    </div>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" #Password="ngModel" ngModel name="Password" class="form-control" [class.is-invalid]="Password.invalid && Password.touched"
+       placeholder="Password" required>
+    <small class="text-danger" [class.d-none]="Password.valid || Password.untouched">Passowrd is Required</small>
+    
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button [disabled]="loginForm.form.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+  </div>
+</form> -->
+
+<div class="col-md-6 offset-md-3">
+  <span class="anchor" id="formLogin"></span>
+
+  <!-- form card login with validation feedback -->
+  <div class="card card-outline-secondary">
+    <div class="card-header">
+      <h3 class="mb-0">Login</h3>
+    </div>
+    <div class="card-body">
+      <form #loginForm="ngForm" (ngSubmit)="OnSubmit(Email.value,Password.value)">
+        <div class="form-group">
+          <label>Username</label>
+          <!-- <input type="text" class="form-control" name="uname1" id="uname1" required="">
+          <div class="invalid-feedback">Please enter your username or email</div> -->
+
+          <input type="email" #Email="ngModel" ngModel name="UserName" [class.is-invalid]="Email.invalid && Email.touched"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Email address" required>
+          <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+            <small class="text-danger" *ngIf="Email.errors.required && Email.touched">Email id Required</small>
+            <small class="text-danger" *ngIf="Email.errors.pattern">Email is invalid</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <!-- <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+          <div class="invalid-feedback">Please enter a password</div> -->
+
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" #Password="ngModel" ngModel name="Password" class="form-control" [class.is-invalid]="Password.invalid && Password.touched"
+            placeholder="Password" required>
+          <small class="text-danger" [class.d-none]="Password.valid || Password.untouched">Passowrd is Required</small>
+
+        </div>
+        <div class="form-check small">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"> <span>Remember me on this computer</span>
+          </label>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary btn-lg float-right" id="btnLogin">Login</button> -->
+        <button [disabled]="loginForm.form.invalid" class="btn btn-lg btn-primary float-right" type="submit">Sign in</button>
+      </form>
+      <div *ngIf="isLoginError" class="text-danger center error-message">
+        Incorrect Username and Passowrd
+      </div>
+    </div>
+    <!--/card-body-->
+  </div>
+  <!-- /form card login -->
+</div>

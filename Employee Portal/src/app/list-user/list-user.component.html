@@ -1,0 +1,18 @@
+<div class="container p-2">
+  <kendo-grid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true"
+    [groupable]="true" (dataStateChange)="onStateChange($event)" (edit)="editHandler($event)" (remove)="removeHandler($event)">
+    <kendo-grid-column field="FirstName" title="First Name" [width]="140">First Name</kendo-grid-column>
+    <kendo-grid-column field="LastName" title="Last Name" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="Email" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="Phone" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="Gender" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="Salary" [width]="130"></kendo-grid-column>
+    <kendo-grid-column field="Department.Name" title="Department" [width]="130"></kendo-grid-column>
+    <kendo-grid-command-column title="Action" [width]="120">
+      <ng-template kendoGridCellTemplate>
+        <button kendoGridEditCommand [primary]="true">Edit</button>
+        <button kendoGridRemoveCommand>Delete</button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</div>

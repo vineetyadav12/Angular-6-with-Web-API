@@ -1,0 +1,100 @@
+<div class="col-md-10 offset-md-1">
+  <span class="anchor" id="formUserEdit"></span>
+
+  <!-- form user info -->
+  <div class="card card-outline-secondary">
+    <div class="card-header">
+      <h3 class="mb-0">Employee Registration</h3>
+    </div>
+    <div class="card-body">
+      <form class="form" autocomplete="off" [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">First name</label>
+          <div class="col-lg-9">
+            <input class="form-control" formControlName="FirstName" [ngClass]="{'is-invalid':submitted && f.FirstName.errors}"
+              type="text" value="" placeholder="First Name">
+            <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+              <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+          <div class="col-lg-9">
+            <input class="form-control" formControlName="LastName" [ngClass]="{'is-invalid':submitted && f.LastName.errors}"
+              type="text" value="" placeholder="Last Name">
+            <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+              <div *ngIf="f.LastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Email</label>
+          <div class="col-lg-9">
+            <input class="form-control" formControlName="Email" [ngClass]="{'is-invalid':submitted && f.Email.errors}"
+              type="email" value="" placeholder="Email">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+              <div *ngIf="f.Email.errors.required">Email is required</div>
+              <div *ngIf="f.Email.errors.pattern">Email is not valid</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Phone</label>
+          <div class="col-lg-9">
+            <input class="form-control" formControlName="Phone" [ngClass]="{'is-invalid':submitted && f.Phone.errors}"
+              type="text" value="" placeholder="Phone">
+            <div *ngIf="submitted && f.Phone.errors" class="invalid-feedback">
+              <div *ngIf="f.Phone.errors.required">Phone is required</div>
+              <div *ngIf="f.Phone.errors.minlength">Phone number must be 10 digit</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+          <div class="col-lg-9">
+            <select id="Gender" formControlName="Gender" class="form-control" size="0" [ngClass]="{'is-invalid':submitted && f.Gender.errors}">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <div *ngIf="submitted && f.Gender.errors" class="invalid-feedback">
+              <div *ngIf="f.Gender.errors.required">Please select gender</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Department</label>
+          <div class="col-lg-9">
+            <select id="Department" formControlName="Department_ID" class="form-control" size="0" [ngClass]="{'is-invalid':submitted && f.Department_Id.errors}">
+              <option value="">Select Department</option>
+              <option *ngFor="let department of departments" value="{{department.Id}}">{{department.Name}}</option>
+            </select>
+            <div *ngIf="submitted && f.Department_Id.errors" class="invalid-feedback">
+              <div *ngIf="f.Department_Id.errors.required">Please select department</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">Salary</label>
+          <div class="col-lg-9">
+            <input class="form-control" formControlName="Salary" [ngClass]="{'is-invalid':submitted && f.Salary.errors}"
+              type="text" value="" placeholder="Salary">
+            <div *ngIf="submitted && f.Salary.errors" class="invalid-feedback">
+              <div *ngIf="f.Salary.errors.required">Salary is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"></label>
+          <div class="col-lg-9">
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+            <button type="submit" [disabled]="loading" class="btn btn-primary">Save</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /form user info -->
+</div>

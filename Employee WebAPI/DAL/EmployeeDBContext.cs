@@ -10,6 +10,10 @@ namespace DAL
 {
     public class EmployeeDBContext : DbContext
     {
+        public EmployeeDBContext() : base("DefaultConnection")
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EmployeeDBContext, DAL.Migrations.Configuration>());
+        }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
     }

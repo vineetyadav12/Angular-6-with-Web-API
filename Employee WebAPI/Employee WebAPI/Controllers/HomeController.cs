@@ -15,5 +15,11 @@ namespace Employee_WebAPI.Controllers
 
             return View();
         }
+        public ActionResult AddEmployee()
+        {
+            ViewBag.Title = "Home Page";
+
+            return View();
+        }
     }
 }

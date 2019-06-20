@@ -17,8 +17,8 @@ D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\bin\Debug\EntityFramewo
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\bin\Debug\EntityFramework.SqlServer.dll
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\bin\Debug\EntityFramework.xml
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.dll
 D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.pdb
+D:\Project\Angular 6 Employee Portal\Employee WebAPI\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

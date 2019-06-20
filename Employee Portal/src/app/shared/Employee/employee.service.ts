@@ -27,7 +27,6 @@ export class EmployeeService {
   }
 
   updateEmployee(employee: Employee) {
-    debugger;
     return this.http.put(this.url + '/' + employee.Id, employee);
   }
 }

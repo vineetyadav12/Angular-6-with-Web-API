@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost/EmployeeWebAPI',
+  baseUrl: 'http://localhost:61300',
+  // baseUrl: 'http://localhost:8080',
 };
 
 /*
